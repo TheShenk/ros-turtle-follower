@@ -1,0 +1,8 @@
+<launch>
+    <node pkg="turtlesim" type="turtlesim_node" name="turtlesim" output="screen">
+        <remap from="/turtle1/pose" to="/leonardo/pose"/>
+    </node>
+    <node pkg="turtlesim" type="turtle_teleop_key" name="splinter"/>
+    <node pkg="rosservice" type="rosservice" name="caller" args="call --wait /spawn 'name: 'donatello''"/>
+    <node pkg="ros-hw-turtle" type="run.py" name="follower"/>
+</launch>
